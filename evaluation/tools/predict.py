@@ -1,10 +1,7 @@
-import torch
-import argparse
-import os
-import pickle
+import torch, argparse, os, pickle
 from load import load_data_from_file
 from transformers import *
-from tqdm import tqdm
+from tqdm.autonotebook import tqdm as tqdm
 
 
 def main():
@@ -24,7 +21,8 @@ def main():
                                          label_encoder,
                                          False)
 
-    tokenizer = AutoTokenizer.from_pretrained(args.lang_model_name)
+    tokenizer = AutoTokenizer.from_pretrained(args.lang_model_name,
+                                              do_lower_case=True if "uncased" in args.lang_model_name else False)
 
     it_tqdm = tqdm(range(args.iterations))
 

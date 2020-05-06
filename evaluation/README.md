@@ -27,20 +27,29 @@ Run the `eval_rrt.sh`, `eval_ronec.sh`, `eval_udify.sh` to evaluate a model on R
 .\eval_rrt.sh bert-base-multilingual-cased cuda
 ```
 
-##### Universal Dependencies evaluation
+#### Universal Dependencies
 
-| Type 	        | Model Name               	        | UPOS (frozen) 	| XPOS (frozen) 	| UPOS (UDify) 	| UFeats (UDify) 	| Lemmas (UDify) 	| LAS (UDify) 	|
-|------------	|-------------------------------	|:-------------:	|:-------------:	|:------------:	|:--------------:	|:--------------:	|:-----------:	|
-| BERT       	| mBert-base-cased                 	|       94.69      	|      90.37         	|     97.92         	|                	|                	|             	|
-| BERT       	| mBert-base-uncased               	|               	|               	|              	|                	|                	|             	|
-| BERT       	| bert-base-romanian-cased-v1   	|               	|               	|              	|                	|                	|             	|
-| BERT       	| bert-base-romanian-uncased-v1 	|               	|               	|              	|                	|                	|             	|
+| Model                          | UPOS <br> (frozen) | XPOS <br> (frozen) | UPOS  |  XPOS |
+|--------------------------------|:-------------:|:-------------:|:-----:|:-----:|
+| bert-base-multilingual-uncased |     95.48     |      89.84    | 97.65 | 95.72 |
+| bert-base-multilingual-cased   |     94.46     |      89.50    | 97.87 | 96.16 |
+| bert-base-romanian-uncased-v1  |     **96.55**     |      **95.14**    | **98.18** | **96.84** |
+| bert-base-romanian-cased-v1    |     96.49     |      95.01    | 98.00 | 96.46 |
 
-##### Named Entity Recognition evaluation:
+#### Universal Dependencies with UDify
 
-| Type 	| Model | Entity Type | Partial | Strict | Exact | 
-|------------	| --- | :---: | :---: | :---: | :---: | 
-| BERT       	| mBert-base-cased (frozen) | 73.31 | 74.35 | 65.89 | 69.95 | 
-| BERT       	| mBert-base-uncased (frozen) | 72.96 | 73.33 | 65.07 | 68.91 | 
-| BERT       	| bert-base-romanian-cased-v1 | - | - | - | - | 
-| BERT       	| bert-base-romanian-uncased-v1 | - | - | - | - | 
+| Model                          | UPOS | UFeats | Lemma | LAS |
+|--------------------------------|:----:|:----:|:------:|:---:|
+| bert-base-multilingual-uncased |   97.74  |   96.61  |    94.50   |  87.58  |
+| bert-base-multilingual-cased   |   -  |   -  |    -   |  -  |
+| bert-base-romanian-uncased-v1  |   97.90  |   97.02  |    94.92   |  89.6  |
+| bert-base-romanian-cased-v1    |   -  |   -  |    -   |  -  |
+
+#### Named Entity Recognition
+
+| Model                          | Entity Type | Partial | Strict | Exact |
+|--------------------------------|:-----------:|:-------:|:------:|:-----:|
+| bert-base-multilingual-uncased |    84.75    |  86.06  |  80.81 | 83.91 |
+| bert-base-multilingual-cased   |    84.52    |  86.27  |  80.6  | 84.13 |
+| bert-base-romanian-uncased-v1  |    85.53    |  87.17  |  82.01 | 85.26 |
+| bert-base-romanian-cased-v1    |    **86.21**    |  **87.84**  |  **82.54** | **85.88** |
